@@ -17,8 +17,17 @@
 <script src="./stack_3.js"></script>
 <script>
 
-stack.getPoint(1,2,3).val = 50;
-console.log(stack.getPoint(1,2,3));
+stack.set({
+
+    w: 3,
+	h: 2,
+	d: 4,
+	val : 1
+
+});
+
+stack.getPoint(0,0,3).val = 50;
+console.log(stack.getPoint(2,1,2));
 console.log(stack.points);
 
 </script>

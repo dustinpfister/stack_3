@@ -9,17 +9,38 @@ var stack = (function () {
 
     var api = {
 
-        w : 4,
-        h : 4,
-		d : 4,
+        w : 2,
+        h : 2,
+		d : 2,
         points : [],
+		
+		set : function(options){
+			
+			options = options === undefined ? {} : options;
+			
+			// defaults
+			options.w = options.w === undefined ? 2 : options.w;
+			options.h = options.h === undefined ? 2 : options.h;
+			options.d = options.d === undefined ? 2 : options.d;
+			options.val = options.val === undefined ? 0 : options.val;
+			
+			this.w = options.w;
+			this.h = options.h;
+			this.d = options.d;
+			
+			this.clearGrid(options.val);
+			
+		},
 
-        clearGrid : function () {
+        clearGrid : function (val) {
 
             var i = 0,
             len = this.w * this.h * this.d;
 
             this.points = [];
+			
+			if(val === undefined){ val = 0; }
+			
             while (i < len) {
 
                 this.points[i] = {
@@ -28,7 +49,7 @@ var stack = (function () {
                     x : i % this.w,
                     y : Math.floor(   (i - (   Math.floor(i / (this.w * this.h)) * (this.w * this.h)    ))       / this.w),
 					z : Math.floor(i / (this.w * this.h)),
-                    val : 0
+                    val : val
 
                 };
 
