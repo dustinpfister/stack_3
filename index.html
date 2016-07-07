@@ -40,8 +40,14 @@ stack.set({
 
 });
 
+var pointer = {
 
-var get = function(id){
+    x:0,y:0,z:0
+
+},
+
+
+get = function(id){
 
     return document.getElementById(id);
 
@@ -100,9 +106,9 @@ onPosChange = function(){
 
     console.log(stack.getPoint(
 	
-	    Number(get('in_x').value),
-		Number(get('in_y').value),
-		Number(get('in_z').value)
+	    pointer.x,
+		pointer.y,
+		pointer.z
 	
 	));
 
@@ -115,12 +121,15 @@ draw();
 get('in_x').addEventListener('input', function(e){
 
     var inVal = Number(e.target.value);
-    
-	e.target.value = inVal;
 	
 	if(inVal + '' === 'NaN'){e.target.value = 0;}
 	if(inVal >= stack.w){e.target.value = stack.w-1;}
 
+	inVal = Number(e.target.value);
+	e.target.value = inVal;
+	
+	pointer.x = inVal;
+	
 	onPosChange();
 	
 });
@@ -128,12 +137,15 @@ get('in_x').addEventListener('input', function(e){
 get('in_y').addEventListener('input', function(e){
 
     var inVal = Number(e.target.value);
-    
-	e.target.value = inVal;
 	
 	if(inVal + '' === 'NaN'){e.target.value = 0;}
 	if(inVal >= stack.h){e.target.value = stack.h-1;}
 
+	inVal = Number(e.target.value);
+	e.target.value = inVal;
+	
+	pointer.y = inVal;
+	
 	onPosChange();
 	
 });
@@ -142,11 +154,15 @@ get('in_z').addEventListener('input', function(e){
 
     var inVal = Number(e.target.value);
     
-	e.target.value = inVal;
 	
 	if(inVal + '' === 'NaN'){e.target.value = 0;}
 	if(inVal >= stack.d){e.target.value = stack.d-1;}
 
+	inVal = Number(e.target.value);
+	e.target.value = inVal;
+	
+	pointer.z = inVal;
+	
 	onPosChange();
 	
 });
