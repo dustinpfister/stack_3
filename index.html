@@ -14,6 +14,18 @@
 <body>
 
 <!--<canvas id="thecanvas" width="640" height="480"></canvas>-->
+x : <input id="in_x" type="text" value="0"><br>
+y : <input id="in_y" type="text" value="0"><br>
+z : <input id="in_z" type="text" value="0"><br>
+
+<br>
+
+val : <input id="in_val" type="text" value="0">
+
+<br>
+<br>
+
+
 <div id="out"></div>
 
 <script src="./stack_3.js"></script>
@@ -23,7 +35,7 @@ stack.set({
 
     w: 8,
 	h: 8,
-	d: 2,
+	d: 4,
 	val : 0
 
 });
@@ -68,9 +80,15 @@ htmlStack = function(){
 	
 	return html;
 
+},
+
+draw = function(){
+
+    document.getElementById('out').innerHTML = htmlStack();
+
 };
 
-document.getElementById('out').innerHTML = htmlStack();
+draw();
 
 </script>
 
