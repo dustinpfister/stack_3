@@ -8,9 +8,9 @@
 
 stack.set({
 
-    w : 8,
+    w : 4,
     h : 4,
-    d : 6,
+    d : 1,
     val : 0
 
 });
@@ -66,28 +66,31 @@ htmlLayer = function (z) {
 
 htmlStack = function () {
 
-    var html = '', z=0, zLen = stack.d,x,y,xLen = stack.w, yLen = stack.h;
+    var html = '', z=0, zLen = stack.d,x,y,xLen = stack.w, yLen = stack.h,
+    
+    pxWidth = 200 / xLen,
+    pxHeight = 200 / yLen;
     
     while(z < zLen){
         
         html += '<div class=\"layer\">';
         
-		y = 0;
-		while(y < xLen){
-			
-			x=0;
-			while(x < xLen){
-				
-				html += '<div class="px" style=\"left:' +Math.floor(x * 5)+ 'px;top:' +Math.floor(y * 5)+ 'px;\"><\/div>'
-				
-				x += 1;
-				
-			}
-			
-			y += 1;
-			
-		}
-		
+        y = 0;
+        while(y < yLen){
+            
+            x=0;
+            while(x < xLen){
+                
+                html += '<div class="px" style=\"left:' +Math.floor(x * pxWidth)+ 'px;top:' +Math.floor(y * pxHeight)+ 'px;\"><\/div>'
+                
+                x += 1;
+                
+            }
+            
+            y += 1;
+            
+        }
+        
         html += '<\/div>';
         
         z += 1;
