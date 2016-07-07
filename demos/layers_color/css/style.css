@@ -70,9 +70,9 @@ td{
 }
 
 .px{
-	
-	position: absolute;
-	width: 5px;
-	height: 5px;
-	background: #ff0000;
+    
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ff0000;
 }
