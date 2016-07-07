@@ -59,7 +59,17 @@ htmlLayer = function(z){
    
     while(i < len){
    
-        html += '<td>'+stack.getPoint(i).val+'<\/td>';
+        if(stack.getPoint(i).x === pointer.x && stack.getPoint(i).y === pointer.y && z === pointer.z){
+		
+		    html += '<td style="color:red;">'
+		
+		}else{
+   
+            html += '<td>';
+		
+		}
+		
+		html += stack.getPoint(i).val+'<\/td>';
 		
 		if(stack.getPoint(i).x === stack.w-1){
 		
@@ -111,6 +121,8 @@ onPosChange = function(){
 		pointer.z
 	
 	));
+	
+	draw();
 
 };
 
