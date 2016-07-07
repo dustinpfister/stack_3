@@ -33,12 +33,17 @@ val : <input id="in_val" type="text" value="0">
 
 stack.set({
 
-    w: 8,
-	h: 8,
-	d: 4,
+    w: 2,
+	h: 2,
+	d: 2,
 	val : 0
 
 });
+
+
+stack.getPoint(0).val = 50;
+
+console.log(stack.points);
 
 var pointer = {
 
@@ -55,8 +60,8 @@ get = function(id){
 
 htmlLayer = function(z){
 
-    var html = '<table class=\"stack\"><tr>', i = 0, len = stack.w * stack.h;
-   
+    var html = '<table class=\"stack\"><tr>', i = (stack.w * stack.h) * z, len = i + stack.w * stack.h;
+	
     while(i < len){
    
         if(stack.getPoint(i).x === pointer.x && stack.getPoint(i).y === pointer.y && z === pointer.z){
@@ -112,8 +117,9 @@ draw = function(){
 
 onPosChange = function(){
 
-    console.log(get('in_x').value);
+    //console.log(get('in_x').value);
 
+	/*
     console.log(stack.getPoint(
 	
 	    pointer.x,
@@ -121,6 +127,7 @@ onPosChange = function(){
 		pointer.z
 	
 	));
+	*/
 	
 	draw();
 
@@ -175,6 +182,20 @@ get('in_z').addEventListener('input', function(e){
 	
 	pointer.z = inVal;
 	
+	onPosChange();
+	
+});
+
+get('in_val').addEventListener('input', function(e){
+
+    console.log(pointer);
+
+    stack.getPoint(
+	
+	    pointer.x,pointer.y,pointer.z
+	
+	).val = e.target.value;
+
 	onPosChange();
 	
 });
