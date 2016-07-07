@@ -96,7 +96,32 @@ draw = function(){
 
 draw();
 
+get('in_x').addEventListener('input', function(e){
 
+    var inVal = Number(e.target.value);
+    
+	if(e.target.value.length > 0 && inVal >= 0 && inVal < stack.w){
+	
+	    console.log(inVal);
+		
+	
+	}
+	
+	e.target.value = inVal;
+	
+	if(inVal + '' === 'NaN'){
+	
+	    e.target.value = 0;
+	
+	}
+	
+	if(inVal >= stack.w){
+	
+	    e.target.value = stack.w-1;
+	
+	}
+
+});
 
 
 </script>
