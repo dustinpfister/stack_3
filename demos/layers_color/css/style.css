@@ -68,3 +68,11 @@ td{
     top:25px;
     background: #000000;
 }
+
+.px{
+	
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background: #ff0000;
+}
