@@ -1,7 +1,7 @@
 
 table{
 
- float:left;
+    display: inline-block;
  
 }
 
@@ -16,11 +16,19 @@ td{
 
 #out{
 	
-	position: absolute;
+}
+
+.interface{
+	
+	position: relative;
+	
+	margin-top:50px;
+	
 	width: 80%;
 	left:10%;
 	padding:10px;
-	background:#808080;
+	
+	outline: 1px solid #ff0000;
 	
 }
 
