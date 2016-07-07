@@ -33,26 +33,26 @@ get = function (id) {
 
 htmlLayer = function (z) {
 
-    var html = '<table class=\"stack\"><tr>',
+    var html = '<div class=\"layer\"><tr>',
     i = (stack.w * stack.h) * z,
     len = i + stack.w * stack.h;
     while (i < len) {
 
         if (stack.getPoint(i).x === pointer.x && stack.getPoint(i).y === pointer.y && z === pointer.z) {
 
-            html += '<td class="pointer">'
+            html += '<div>'
 
         } else {
 
-            html += '<td>';
+            html += '<div>';
 
         }
 
-        html += stack.getPoint(i).val + '<\/td>';
+        html += stack.getPoint(i).val + '<\/div>';
 
         if (stack.getPoint(i).x === stack.w - 1) {
 
-            html += '<\/tr><tr>';
+            html += '<\/div><div>';
 
         }
 
@@ -60,24 +60,22 @@ htmlLayer = function (z) {
 
     }
 
-    html += '<td colspan=\"' + stack.w + '\";>layer ' + z + '<\/td>';
-
-    return html + '<\/tr><\/table>';
+    return html + '<\/div>';
 
 },
 
 htmlStack = function () {
 
-    var html = '',
-    i = 0,
-    len = stack.d;
-    while (i < len) {
-
-        html += htmlLayer(i);
-
-        i += 1;
-
-    }
+    var html = '', z=0, zLen = stack.d;
+	
+	while(z < zLen){
+		
+		html += '<div class=\"layer\">';
+		
+		html += '<\/div>';
+		
+		z += 1;
+	}
 
     return html;
 
