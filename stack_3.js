@@ -15,26 +15,29 @@ var stack = (function () {
         d : 2,
         points : [],
 
+        // set the values of the stack
         set : function (options) {
 
-            options = options === undefined ? {}
+            // if no options start with an empty object
+            options = options === undefined ? {} : options;
 
-             : options;
-
-            // defaults
+            // defaults or given option
             options.w = options.w === undefined ? 2 : options.w;
             options.h = options.h === undefined ? 2 : options.h;
             options.d = options.d === undefined ? 2 : options.d;
             options.val = options.val === undefined ? 0 : options.val;
 
+            // set options
             this.w = options.w;
             this.h = options.h;
             this.d = options.d;
 
+            // clear the grid with options
             this.clearGrid(options.val);
 
         },
 
+        // clear the stack to the given value
         clearGrid : function (val) {
 
             var i = 0,
@@ -63,6 +66,7 @@ var stack = (function () {
 
         },
 
+        // count how many points have the given value
         countVal : function (theVal) {
 
             var i = 0,
