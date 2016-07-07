@@ -8,6 +8,14 @@
 
 <!--<link rel="stylesheet" href="./css/em.css">-->
 
+<style>
+table{
+
+ float:left;
+ 
+}
+</style>
+
 </head>
 
 <body>
@@ -53,7 +61,23 @@ var htmlLayer = function(z){
 },
 
 
-document.getElementById('out').innerHTML = htmlLayer(0);
+htmlStack = function(){
+
+    var html = '', i=0, len = stack.d;
+	
+	while(i < len){
+	
+	    html += htmlLayer(i);
+	
+	    i += 1;
+	
+	}
+	
+	return html;
+
+};
+
+document.getElementById('out').innerHTML = htmlStack();
 
 </script>
 
