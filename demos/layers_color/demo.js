@@ -81,7 +81,7 @@ htmlStack = function () {
             x=0;
             while(x < xLen){
                 
-                html += '<div class="px" style=\"left:' +Math.floor(x * pxWidth)+ 'px;top:' +Math.floor(y * pxHeight)+ 'px;\"><\/div>'
+                html += '<div class="px" style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;left:' +Math.floor(x * pxWidth)+ 'px;top:' +Math.floor(y * pxHeight)+ 'px;\"><\/div>'
                 
                 x += 1;
                 
