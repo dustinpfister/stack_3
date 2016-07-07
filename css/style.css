@@ -12,12 +12,18 @@ table{
 	width: 80%;
 	left:10%;
 	padding:10px;
-	background:#a0a0a0;
+	background:#808080;
 	
 }
 
 .stack{
 	
 	margin: 20px;
+	
+}
+
+.pointer{
+	
+	color: yellow;
 	
 }
