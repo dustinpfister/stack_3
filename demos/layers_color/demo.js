@@ -11,7 +11,7 @@ stack.set({
     w : 4,
     h : 4,
     d : 1,
-    val : 0
+    val : 'rgba(255,0,0,0.5)'
 
 });
 
@@ -81,7 +81,7 @@ htmlStack = function () {
             x=0;
             while(x < xLen){
                 
-                html += '<div class="px" style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;left:' +Math.floor(x * pxWidth)+ 'px;top:' +Math.floor(y * pxHeight)+ 'px;\"><\/div>'
+                html += '<div class="px" style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;left:' +Math.floor(x * pxWidth)+ 'px;top:' +Math.floor(y * pxHeight)+ 'px;background:'+stack.getPoint(x,y,z).val+';\"><\/div>';
                 
                 x += 1;
                 
