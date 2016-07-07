@@ -1,0 +1,23 @@
+
+table{
+
+ float:left;
+ 
+}
+
+
+#out{
+	
+	position: absolute;
+	width: 80%;
+	left:10%;
+	padding:10px;
+	background:#a0a0a0;
+	
+}
+
+.stack{
+	
+	margin: 20px;
+	
+}

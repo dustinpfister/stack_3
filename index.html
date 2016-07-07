@@ -6,15 +6,8 @@
 <title>Stack 3</title>
 <meta charset="utf-8">
 
-<!--<link rel="stylesheet" href="./css/em.css">-->
+<link rel="stylesheet" href="./css/style.css">
 
-<style>
-table{
-
- float:left;
- 
-}
-</style>
 
 </head>
 
@@ -38,7 +31,7 @@ stack.set({
 
 var htmlLayer = function(z){
 
-    var html = '<table><tr>', i = 0, len = stack.w * stack.h;
+    var html = '<table class=\"stack\"><tr>', i = 0, len = stack.w * stack.h;
    
     while(i < len){
    
