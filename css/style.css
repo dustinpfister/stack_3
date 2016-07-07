@@ -5,6 +5,14 @@ table{
  
 }
 
+td{
+	
+	padding:5px;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	
+}
 
 #out{
 	
