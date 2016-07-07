@@ -41,7 +41,13 @@ stack.set({
 });
 
 
-var htmlLayer = function(z){
+var get = function(id){
+
+    return document.getElementById(id);
+
+},
+
+htmlLayer = function(z){
 
     var html = '<table class=\"stack\"><tr>', i = 0, len = stack.w * stack.h;
    
@@ -84,11 +90,14 @@ htmlStack = function(){
 
 draw = function(){
 
-    document.getElementById('out').innerHTML = htmlStack();
+    get('out').innerHTML = htmlStack();
 
 };
 
 draw();
+
+
+
 
 </script>
 
