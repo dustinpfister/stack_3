@@ -7,6 +7,7 @@
  */
 var stack = (function () {
 
+    // the public api
     var api = {
 
         w : 2,
@@ -83,20 +84,24 @@ var stack = (function () {
 
         },
 
+        // get a point in the matrix
         getPoint : function (ix, y, z) {
 
+            // if y is undefined assume get by index
             if (y === undefined) {
 
+                // return based on index
                 return this.points[ix];
 
+            // else assume get by x,y,z
             } else {
 
-                //return this.points[y * this.w + ix];
-
+                // default to z = 0 if undefined
                 if (z === undefined) {
                     z = 0;
                 }
 
+                // return based on x,y,z
                 return this.points[z * (this.w * this.h) + y * this.w + ix];
 
             }
@@ -105,8 +110,10 @@ var stack = (function () {
 
     };
 
+    // clear the grid
     api.clearGrid();
 
+    // return the public api
     return api;
 
 }
