@@ -12,23 +12,48 @@
 
 <body>
 
-<canvas id="thecanvas" width="640" height="480"></canvas>
+<!--<canvas id="thecanvas" width="640" height="480"></canvas>-->
+<div id="out"></div>
 
 <script src="./stack_3.js"></script>
 <script>
 
 stack.set({
 
-    w: 3,
-	h: 2,
-	d: 4,
-	val : 1
+    w: 8,
+	h: 8,
+	d: 2,
+	val : 0
 
 });
 
-stack.getPoint(0,0,3).val = 50;
-console.log(stack.getPoint(2,1,2));
-console.log(stack.points);
+
+var htmlLayer = function(z){
+
+    var html = '<table><tr>', i = 0, len = stack.w * stack.h;
+   
+    while(i < len){
+   
+        html += '<td>'+stack.getPoint(i).val+'<\/td>';
+		
+		if(stack.getPoint(i).x === stack.w-1){
+		
+		    html += '<\/tr><tr>';
+		
+		}
+   
+        i += 1;
+   
+    }
+   
+    html += '<td colspan=\"' + stack.w + '\";>layer '+z+'<\/td>';
+   
+    return html + '<\/tr><\/table>';
+
+},
+
+
+document.getElementById('out').innerHTML = htmlLayer(0);
 
 </script>
 
