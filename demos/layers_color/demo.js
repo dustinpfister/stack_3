@@ -10,12 +10,23 @@ stack.set({
 
     w : 4,
     h : 4,
-    d : 1,
-    val : 'rgba(255,0,0,0.5)'
+    d : 3,
+    val : 'rgba(255,0,0,0.25)'
 
 });
 
-// stack.getPoint(2,2,0).val = 1;
+// 0,0
+stack.getPoint(0,0,0).val = 'rgba(0,255,0,0)';
+stack.getPoint(0,0,1).val = 'rgba(0,255,0,0)';
+stack.getPoint(0,0,2).val = 'rgba(0,255,0,0)';
+
+// 1,0
+stack.getPoint(1,0,0).val = 'rgba(0,255,0,0)';
+stack.getPoint(1,0,1).val = 'rgba(0,255,0,0)';
+
+// 2,0
+
+stack.getPoint(2,0,0).val = 'rgba(0,255,0,0)';
 
 var pointer = {
 
