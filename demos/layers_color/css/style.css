@@ -1,0 +1,57 @@
+
+body{
+
+    background: #000000;
+    color: #ffffff;
+
+}
+
+table{
+
+    display: inline-block;
+    outline: 1px solid #000000;
+
+}
+
+td{
+
+    padding:5px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    color: #000000;
+
+}
+
+#out{
+
+}
+
+.interface{
+
+    outline: 1px solid #ffffff;
+    background: #808080;
+
+}
+
+.container{
+
+    position: relative;
+    margin-top:50px;
+    width: 80%;
+    left:10%;
+    padding:10px;
+
+}
+
+.stack{
+
+    margin: 20px;
+
+}
+
+.pointer{
+
+    color: yellow;
+
+}
