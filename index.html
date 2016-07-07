@@ -92,9 +92,25 @@ draw = function(){
 
     get('out').innerHTML = htmlStack();
 
+},
+
+onPosChange = function(){
+
+    console.log(get('in_x').value);
+
+    console.log(stack.getPoint(
+	
+	    Number(get('in_x').value),
+		Number(get('in_y').value),
+		Number(get('in_z').value)
+	
+	));
+
 };
 
 draw();
+
+
 
 get('in_x').addEventListener('input', function(e){
 
@@ -105,6 +121,8 @@ get('in_x').addEventListener('input', function(e){
 	if(inVal + '' === 'NaN'){e.target.value = 0;}
 	if(inVal >= stack.w){e.target.value = stack.w-1;}
 
+	onPosChange();
+	
 });
 
 get('in_y').addEventListener('input', function(e){
@@ -116,6 +134,8 @@ get('in_y').addEventListener('input', function(e){
 	if(inVal + '' === 'NaN'){e.target.value = 0;}
 	if(inVal >= stack.h){e.target.value = stack.h-1;}
 
+	onPosChange();
+	
 });
 
 get('in_z').addEventListener('input', function(e){
@@ -127,6 +147,8 @@ get('in_z').addEventListener('input', function(e){
 	if(inVal + '' === 'NaN'){e.target.value = 0;}
 	if(inVal >= stack.d){e.target.value = stack.d-1;}
 
+	onPosChange();
+	
 });
 
 </script>
