@@ -8,15 +8,25 @@
 
 stack.set({
 
-    w : 2,
-    h : 2,
-    d : 2,
+    w : 4,
+    h : 4,
+    d : 4,
     val : 0
 
 });
 
-stack.getPoint(0,0,1).val = 1;
-stack.getPoint(1,0,0).val = 1;
+var pointer = {
+	
+	x : 1, y : 1, z : 1
+	
+};
+
+stack.getPoint(0,0,0).val = 1;
+stack.getPoint(3,0,0).val = 1;
+stack.getPoint(0,0,3).val = 1;
+stack.getPoint(0,3,0).val = 1;
+
+stack.getPoint(pointer.x,pointer.y,pointer.z).val = 2;
 
     // I need a three.js scene
 var scene = new THREE.Scene(),
@@ -31,6 +41,14 @@ var scene = new THREE.Scene(),
             color : '#00af00'
 
         }),
+		
+		
+	Pointer = new THREE.MeshBasicMaterial({
+
+            color : '#af0000'
+
+        }),
+		
         
         Wire = new THREE.LineBasicMaterial({
 
@@ -54,24 +72,35 @@ var scene = new THREE.Scene(),
             
             point = stack.getPoint(i);
             
-			
             
-			    mesh = new THREE.Object3D(),
+            
+                mesh = new THREE.Object3D(),
                 box = new THREE.BoxGeometry(1, 1, 1);
-                mesh.position.x = point.x * 3;
-                mesh.position.y = point.y * 3;
-                mesh.position.z = point.z * 3;
+                mesh.position.x = point.x * 1;
+                mesh.position.y = point.y * 1;
+                mesh.position.z = point.z * 1;
                 
-				if(point.val === 1){
+                if(point.val === 1){
+                
+                    mesh.add(new THREE.Mesh(box, Face));
+                
+                }
 				
-				    mesh.add(new THREE.Mesh(box, Face));
+				if(point.val === 2){
                 
+                    mesh.add(new THREE.Mesh(box, Pointer));
+                
+                }
+                
+				if(point.x < pointer.x || point.z < pointer.z || point.y < pointer.y){
+                
+				    mesh.add(new THREE.Line(box, Wire));
+				
 				}
 				
-				mesh.add(new THREE.Line(box, Wire));
                 scene.add(mesh);
-			
-			
+            
+            
         
         i += 1;
         
@@ -82,9 +111,9 @@ var scene = new THREE.Scene(),
     makeStackCubes();
     
     
-    camera.position.x = 10;
-    camera.position.y = 10;
-    camera.position.z = 10;
+    camera.position.x = 4;
+    camera.position.y = 4;
+    camera.position.z = 4;
     camera.lookAt(new THREE.Vector3(0,0,0));
     
     renderer.render(scene, camera);
