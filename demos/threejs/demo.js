@@ -16,9 +16,9 @@ stack.set({
 });
 
 var pointer = {
-	
-	x : 1, y : 1, z : 1
-	
+    
+    x : 1, y : 3, z : 1
+    
 };
 
 stack.getPoint(0,0,0).val = 1;
@@ -41,14 +41,14 @@ var scene = new THREE.Scene(),
             color : '#00af00'
 
         }),
-		
-		
-	Pointer = new THREE.MeshBasicMaterial({
+        
+        
+    Pointer = new THREE.MeshBasicMaterial({
 
             color : '#af0000'
 
         }),
-		
+        
         
         Wire = new THREE.LineBasicMaterial({
 
@@ -85,19 +85,19 @@ var scene = new THREE.Scene(),
                     mesh.add(new THREE.Mesh(box, Face));
                 
                 }
-				
-				if(point.val === 2){
+                
+                if(point.val === 2){
                 
                     mesh.add(new THREE.Mesh(box, Pointer));
                 
                 }
                 
-				if(point.x < pointer.x || point.z < pointer.z || point.y < pointer.y){
+                if(point.x < pointer.x || point.z < pointer.z || point.y < pointer.y){
                 
-				    mesh.add(new THREE.Line(box, Wire));
-				
-				}
-				
+                    mesh.add(new THREE.Line(box, Wire));
+                
+                }
+                
                 scene.add(mesh);
             
             
@@ -114,7 +114,7 @@ var scene = new THREE.Scene(),
     camera.position.x = 4;
     camera.position.y = 4;
     camera.position.z = 4;
-    camera.lookAt(new THREE.Vector3(0,0,0));
+    camera.lookAt(new THREE.Vector3(pointer.x,pointer.y,pointer.z));
     
     renderer.render(scene, camera);
     
@@ -143,7 +143,7 @@ var scene = new THREE.Scene(),
             up = true;
         }
         
-        camera.lookAt(new THREE.Vector3(0,0,0));
+        camera.lookAt(new THREE.Vector3(pointer.x,pointer.y,pointer.z));
         
         renderer.render(scene, camera);
         
