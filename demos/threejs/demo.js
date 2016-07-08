@@ -57,7 +57,7 @@ var scene = new THREE.Scene(),
         mesh.position.y = point.y * 3;
         mesh.position.z = point.z * 3;
         mesh.add(new THREE.Mesh(box, Face));
-        //mesh.add(new THREE.Line(box, Wire));
+        mesh.add(new THREE.Line(box, Wire));
         scene.add(mesh);
         
         i += 1;
@@ -69,12 +69,43 @@ var scene = new THREE.Scene(),
     makeStackCubes();
     
     
-    camera.position.x = 5;
-    camera.position.y = 5;
-    camera.position.z = 5;
+    camera.position.x = 10;
+    camera.position.y = 0;
+    camera.position.z = 10;
     camera.lookAt(new THREE.Vector3(0,0,0));
     
-    
-    
-    
     renderer.render(scene, camera);
+    
+    var up = true;
+    var loop = function(){
+        
+        setTimeout(loop, 33);
+        
+        if(up){
+        camera.position.y += 0.25;
+        
+        }else{
+            
+            camera.position.y -= 0.25;
+        }
+        
+        if(camera.position.y >= 10){
+            
+            camera.position.y = 10;
+            up = false;
+        }
+        
+        if(camera.position.y <= -10){
+            
+            camera.position.y = -10;
+            up = true;
+        }
+        
+        camera.lookAt(new THREE.Vector3(0,0,0));
+        
+        renderer.render(scene, camera);
+        
+        console.log('yeah');
+    };
+    
+    loop();
