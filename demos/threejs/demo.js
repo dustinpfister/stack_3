@@ -15,6 +15,9 @@ stack.set({
 
 });
 
+stack.getPoint(0,0,1).val = 1;
+stack.getPoint(1,0,0).val = 1;
+
     // I need a three.js scene
 var scene = new THREE.Scene(),
 
@@ -51,14 +54,24 @@ var scene = new THREE.Scene(),
             
             point = stack.getPoint(i);
             
-        mesh = new THREE.Object3D(),
-        box = new THREE.BoxGeometry(1, 1, 1);
-        mesh.position.x = point.x * 3;
-        mesh.position.y = point.y * 3;
-        mesh.position.z = point.z * 3;
-        mesh.add(new THREE.Mesh(box, Face));
-        mesh.add(new THREE.Line(box, Wire));
-        scene.add(mesh);
+			
+            
+			    mesh = new THREE.Object3D(),
+                box = new THREE.BoxGeometry(1, 1, 1);
+                mesh.position.x = point.x * 3;
+                mesh.position.y = point.y * 3;
+                mesh.position.z = point.z * 3;
+                
+				if(point.val === 1){
+				
+				    mesh.add(new THREE.Mesh(box, Face));
+                
+				}
+				
+				mesh.add(new THREE.Line(box, Wire));
+                scene.add(mesh);
+			
+			
         
         i += 1;
         
@@ -70,7 +83,7 @@ var scene = new THREE.Scene(),
     
     
     camera.position.x = 10;
-    camera.position.y = 0;
+    camera.position.y = 10;
     camera.position.z = 10;
     camera.lookAt(new THREE.Vector3(0,0,0));
     
@@ -108,4 +121,4 @@ var scene = new THREE.Scene(),
         console.log('yeah');
     };
     
-    loop();
+   // loop();
